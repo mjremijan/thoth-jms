@@ -11,10 +11,21 @@
             <h:link value="&lt;&lt; Index" outcome="/index" style="color:blue;" />
         </p>
         
-        <h2>Message Produced</h2>
-        <p>
-            This is the message that was produced: #{helloWorldMessageBean.message}
-        </p>
+        <h2>
+            Message Produced!
+        </h2>
+        <blockquote>
+            <p>
+                This is the message that was produced: #{helloWorldMessageBean.message}
+            </p>
+            <p>
+                <h:form style="display:inline!important; margin: 0; padding: 0;">
+                    <h:commandLink action="#{helloWorldMessageController.produce}">
+                        Produce another message!
+                    </h:commandLink>
+                </h:form>
+            </p>
+        </blockquote>
     </h:body>
 </html>
 

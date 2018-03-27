@@ -5,14 +5,9 @@ import java.util.Date;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
 import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
-import javax.jms.MessageProducer;
 import javax.jms.Queue;
-import javax.jms.Session;
-import javax.jms.TextMessage;
 
 /**
  *
@@ -25,9 +20,6 @@ public class HelloWorldMessageSender {
     @JMSConnectionFactory("jms/HelloWorldConnectionFactory")
     protected JMSContext context;
 
-    @Resource(lookup = "jms/HelloWorldConnectionFactory")
-    protected ConnectionFactory connectionFactory;
-
     @Resource(lookup = "jms/HelloWorldQueue")
     protected Queue queue;
 
@@ -37,21 +29,6 @@ public class HelloWorldMessageSender {
         if (context != null) {
             System.out.printf("Use JMSContext to produce%n");
             context.createProducer().send(queue, txt);
-        }
-        else
-        if (connectionFactory != null) {
-            System.out.printf("Use ConnectionFactory to produce%n");
-            try (
-                Connection connection = connectionFactory.createConnection();
-                Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-                MessageProducer producer = session.createProducer(queue);
-            ) {
-                TextMessage message = session.createTextMessage();
-                message.setText(txt);
-                producer.send(message);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
         }
         else {
             throw new RuntimeException("NO CONNECTION FACTORY. MESSAGE NOT PRODUCED!");
