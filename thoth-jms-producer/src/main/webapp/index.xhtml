@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Hello World Message Producer</title>
+    </h:head>
+    <h:body>
+        <h1>Hello World Message Producer</h1>
+        
+        <h:form style="display:inline!important; margin: 0; padding: 0;">
+            <p>
+                <b>Navigation</b>
+            </p>
+            <blockquote>
+                <p>
+                    This link will call the <span style="font-family: monospace">NavigationController#navigate()</span>
+                    method.  The method will then forward the request to the
+                    <span style="font-family: monospace">navigated.xhtml</span> page.
+                    <h:commandLink action="#{navigationController.navigate}">
+                        Try it.
+                    </h:commandLink>
+                </p>
+            </blockquote>
+        </h:form>
+        
+        
+        <h:form style="display:inline!important; margin: 0; padding: 0;">
+            <p>
+                <b>Message Producer</b>
+            </p>
+            <blockquote>
+                <p>
+                    Simple name of the controller: #{helloWorldMessageController.simpleName}
+                </p>
+                <p>
+                    This link will call the <span style="font-family: monospace">HelloWorldMessageController#produce()</span>
+                    method.  The method will attempt to produce a message on a queue.  It will then attempt
+                    to navigate to the <span style="font-family: monospace">produced.xhtml</span> page.
+                    <h:commandLink action="#{helloWorldMessageController.produce}">
+                        Produce!
+                    </h:commandLink>
+                </p>
+            </blockquote>
+        </h:form>
+    </h:body>
+</html>
+
