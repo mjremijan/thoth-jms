@@ -10,6 +10,7 @@
     </description>
     <modules>
         <module>thoth-jms-producer</module>
+        <module>thoth-jms-consumer</module>
     </modules>
     
     <properties>
