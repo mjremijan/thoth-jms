@@ -18,7 +18,7 @@ import org.thoth.jms.consumer.history.HelloWorldMessageHistory;
  */
 @MessageDriven(activationConfig = {
     @ActivationConfigProperty(propertyName = "destinationLookup",
-            propertyValue = "jms/HelloWorldQueue"),
+            propertyValue = "java:module/jms/tree-mouse"),
     @ActivationConfigProperty(propertyName = "destinationType",
             propertyValue = "javax.jms.Queue")
 })

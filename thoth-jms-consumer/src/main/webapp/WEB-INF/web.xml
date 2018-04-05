@@ -21,4 +21,9 @@
     <welcome-file-list>
         <welcome-file>history.xhtml</welcome-file>
     </welcome-file-list>
+    
+    <resource-ref>
+        <res-ref-name>java:module/jms/tree-mouse</res-ref-name>
+        <res-type>javax.jms.Queue</res-type>
+    </resource-ref> 
 </web-app>
